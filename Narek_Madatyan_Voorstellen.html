@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectvoorstellen Data as a Service — Narek Madatyan</title>
+  <style>
+    :root {
+      --bg-color: #f7f4ef;
+      --card-bg: #ffffff;
+      --primary: #c85a32;
+      --primary-hover: #b04b25;
+      --secondary: #1f4e5b;
+      --secondary-light: #e8f1f3;
+      --text-main: #2b2927;
+      --text-muted: #6e6a66;
+      --border-color: #e6dfd5;
+      --accent-badge: #fdf2ed;
+      --radius: 16px;
+      --shadow: 0 10px 30px -5px rgba(43, 41, 39, 0.05), 0 4px 12px -2px rgba(43, 41, 39, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background-color: var(--secondary-light);
+      color: var(--secondary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+      font-weight: 800;
+    }
+
+    .student-info {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .tab-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 0.8rem 1.4rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .tab-btn:hover {
+      background-color: #ffffff;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(200, 90, 50, 0.3);
+    }
+
+    .proposal-card {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.35s ease;
+    }
+
+    .proposal-card.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .proposal-header {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .proposal-tag {
+      display: inline-block;
+      background-color: var(--accent-badge);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.3rem 0.85rem;
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .proposal-header h2 {
+      font-size: 1.85rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .one-liner {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+
+    .section-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-block h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .section-block p {
+      color: #4a4643;
+      font-size: 1.02rem;
+    }
+
+    .feature-list {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .feature-list li {
+      margin-bottom: 0.6rem;
+      color: #4a4643;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge-top">Data as a Service — Opdracht</span>
+      <h1>Projectvoorstellen</h1>
+      <div class="student-info">Narek Madatyan — Applied Data Intelligence</div>
+      <p>Drie haalbare concepten voor het uitwerken van de webapplicatie</p>
+    </header>
+
+    <nav class="tab-navigation">
+      <button class="tab-btn active" onclick="openTab(event, 'voorstel1')">1. PriceIntel</button>
+      <button class="tab-btn" onclick="openTab(event, 'voorstel2')">2. TrendRadar</button>
+      <button class="tab-btn" onclick="openTab(event, 'voorstel3')">3. MetaPulse</button>
+    </nav>
+
+    <section id="voorstel1" class="proposal-card active">
+      <div class="proposal-header">
+        <span class="proposal-tag">Voorstel 1 — Prijstracker</span>
+        <h2>PriceIntel</h2>
+        <p class="one-liner">Een simpele webapp die prijsverlopen van producten volgt en laat zien of een korting wel echt een goeie deal is.</p>
+      </div>
+
+      <div class="section-block">
+        <h3>Probleem & Doelgroep</h3>
+        <p>
+          Als je op zoek bent naar een nieuwe laptop of kleding, zie je vaak grote kortingsbanners. Alleen verhogen winkels hun prijzen soms vlak voor een actie, waardoor een deal beter lijkt dan hij is. PriceIntel helpt mensen die graag slim winkelen om te checken wat de prijs eerder was.
+        </p>
+      </div>
+
+      <div class="section-block">
+        <h3>Wat de app kan (MVP)</h3>
+        <ul class="feature-list">
+          <li>Je plakt een link van een product of zoekt erop om het op te slaan in je eigen lijstje.</li>
+          <li>De app checkt elke dag automatisch de nieuwste prijzen op verschillende webshops.</li>
+          <li>Een grafiek die het prijsverloop van de afgelopen weken of maanden laat zien.</li>
+          <li>Je krijgt een melding als een product onder de prijs zak die jij ervoor over hebt.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="voorstel2" class="proposal-card">
+      <div class="proposal-header">
+        <span class="proposal-tag">Voorstel 2 — Nieuws & Sentiment</span>
+        <h2>TrendRadar</h2>
+        <p class="one-liner">Een overzichtelijk dashboard dat nieuwsartikelen verzamelt en laat zien hoe er over een onderwerp gesproken wordt.</p>
+      </div>
+
+      <div class="section-block">
+        <h3>Probleem & Doelgroep</h3>
+        <p>
+          Bedrijven of studenten willen vaak weten hoe het publiek denkt over een bepaald thema, zoals AI of nieuwe technologie. Er verschijnen alleen dagelijks honderden artikelen. TrendRadar verzamelt al die artikelen op één plek en berekent of het nieuws vooral positief of negatief is.
+        </p>
+      </div>
+
+      <div class="section-block">
+        <h3>Wat de app kan (MVP)</h3>
+        <ul class="feature-list">
+          <li>Zoektermen of thema's instellen die je wilt volgen.</li>
+          <li>Automatisch de nieuwste berichten en artikelen ophalen van het internet.</li>
+          <li>Een simpele meter die de verhouding laat zien tussen positieve, neutrale en negatieve berichten.</li>
+          <li>Zien op welke dagen er een grote piek was in het aantal artikelen.</li>
+          <li>Een overzicht van de meest gebruikte trefwoorden rondom het gekozen thema.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="voorstel3" class="proposal-card">
+      <div class="proposal-header">
+        <span class="proposal-tag">Voorstel 3 — Gaming Analytics</span>
+        <h2>MetaPulse</h2>
+        <p class="one-liner">Een gaming dashboard dat de sterkste personages en wapens in kaart brengt op basis van echte spelstatistieken.</p>
+      </div>
+
+      <div class="section-block">
+        <h3>Probleem & Doelgroep</h3>
+        <p>
+          Bij games zoals Valorant of League of Legends veranderen de kansen om te winnen continu zodra er een nieuwe update uitkomt. Spelers moeten nu vaak op willekeurige fora zoeken naar wat werkt. MetaPulse is voor competitieve gamers die snel willen zien welke keuzes op dit moment de hoogste winstkans hebben.
+        </p>
+      </div>
+
+      <div class="section-block">
+        <h3>Wat de app kan (MVP)</h3>
+        <ul class="feature-list">
+          <li>Automatisch recente wedstrijdgegevens en win-rates ophalen uit de game.</li>
+          <li>Een overzichtelijke ranglijst (van S-tier tot D-tier) van de best presterende personages.</li>
+          <li>Direct zien hoe de winstkans van een personage is veranderd na de laatste spel-update.</li>
+          <li>Filteren op speelniveau (zoals beginners of gevorderden) en specifieke maps.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 — Narek Madatyan | Data as a Service Projectvoorstellen</p>
+    </footer>
+  </div>
+
+  <script>
+    function openTab(evt, proposalId) {
+      const cards = document.querySelectorAll('.proposal-card');
+      cards.forEach(card => card.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(proposalId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
